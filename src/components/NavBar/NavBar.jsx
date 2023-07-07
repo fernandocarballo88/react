@@ -1,14 +1,14 @@
 import CartWidget from "../CartWidget/CartWidget"
-
+import './navbar.css';
 
 const NavBar = () => {
     return(
         <nav>
             <h3>Lego Sotre Argentina</h3>
             <div>
-                <button>Star Wars</button>
-                <button>Marvel</button>
-                <button>DC</button>
+                <button className="btn">Star Wars</button>
+                <button className="btn">Marvel</button>
+                <button className="btn">DC</button>
             </div>
             <CartWidget />
         </nav>
