@@ -1,6 +1,9 @@
 import { useState } from "react";
 import getData from "../../services/asyncMock"
 import Item from "../Item/Item";
+import './list.css';
+
+
 
 
 const ItemListContainer = ({ greeting }) =>{
@@ -16,9 +19,11 @@ const ItemListContainer = ({ greeting }) =>{
 return(
     <div>
         <h1>Productos</h1>
+        <div  className="legos">
         {products.map((item) => (
         <Item key={item.id} {...item} />
         ))}
+        </div>
     </div>
 );
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import "./item.css";
 
 function Item(props) {
@@ -15,6 +17,9 @@ function Item(props) {
         <h4>$ {price}</h4>
         <small>{description}</small>
       </div>
+      <Link to={`/product/${id}`}>
+      <ButtonComponent colorFondo="green" className="btn-product">Ver Producto</ButtonComponent>
+      </Link>
     </div>
   );
 }

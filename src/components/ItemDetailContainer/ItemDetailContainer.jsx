@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
-import getData from "../../services/asyncMock";
+import {getProductData} from "../../services/asyncMock";
+import '../Item/item.css';
+import { useParams } from "react-router-dom";
+
+
 
 function ItemDetailContainer(){
     const[product, setProduct] = useState({});
+    const { id } = useParams();
+
     async function requestProduct(){
-        const respuesta = await getData();
-        setProduct(respuesta[0]);
+        const respuesta = await getProductData(id);
+        setProduct(respuesta);
     }
     
     useEffect(() =>{
@@ -14,8 +20,8 @@ requestProduct()
 
     return (
         <>
-        <div>
-        <img src={product.img} alt="imagen" width={"400px"}></img>
+        <div className="legos">
+        <img src={product.img} alt="imagen" width={"500px"}></img>
       </div>
       <div>
         <h2>{product.title}</h2>
