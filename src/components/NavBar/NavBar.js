@@ -13,19 +13,19 @@ export default function NavBar() {
             </h3>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/category/Star Wars">
                 <button className="btn">Star Wars</button>
                 </Link>
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/category/Marvel">
                 <button className="btn">Marvel</button>
                 </Link>
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/category/DC">
                 <button className="btn">DC</button>
                 </Link>
             </li>

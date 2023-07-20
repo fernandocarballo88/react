@@ -61,6 +61,7 @@ export function getProductData(idURL) {
                 img:"../assets/img/xwing.jpg",
                 price:50,
                 stock:4,
+                category: "Star Wars"
             },
             {
                 id: 2,
@@ -68,13 +69,15 @@ export function getProductData(idURL) {
                 img:"../assets/img/imperial shuttle.jpeg",
                 price:60,
                 stock:3,
+                category: "Star Wars"
             },
             {
                 id: 3,
-                title:"Naboo Starfighter",
-                img:"../assets/img/naboo n1.jpg",
+                title:"Batman",
+                img:"../assets/img/batman.jpg",
                 price:80,
                 stock:1,
+                category: "DC"
             },
             {
                 id: 4,
@@ -82,6 +85,7 @@ export function getProductData(idURL) {
                 img:"../assets/img/razor crest.jpg",
                 price:100,
                 stock:2,
+                category: "Star Wars"
             },
             {
                 id: 5,
@@ -89,13 +93,15 @@ export function getProductData(idURL) {
                 img:"../assets/img/tie fighter.jpg",
                 price:30,
                 stock:10,
+                category: "Star Wars"
             },
             {
                 id: 6,
-                title:"Imperial Cruisser",
-                img:"../assets/img/imperial cruiser.jpg",
+                title:"Hulkbuster",
+                img:"../assets/img/marvel.jpeg",
                 price:200,
                 stock:1,
+                category: "Marvel"
             },
         ];
         const productRequested = productos.find((item) => item.id === parseInt(idURL));
