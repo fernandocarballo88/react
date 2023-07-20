@@ -20,7 +20,7 @@ requestProduct()
 
     return (
         <>
-        <div className="legos">
+        <div>
         <img src={product.img} alt="imagen" width={"500px"}></img>
       </div>
       <div>
