@@ -11,6 +11,7 @@ const ItemListContainer = () =>{
     const [products, setProducts] = useState([]);
     const { categoryId } = useParams();
 
+    useEffect(() =>{
     async function requestProducts(){
         let respuesta = categoryId
         ? await getCategoryData(categoryId)
@@ -26,9 +27,9 @@ const ItemListContainer = () =>{
 
 }  
 
-useEffect(() =>{
+
     requestProducts();
-}, []);
+}, [categoryId]);
     
 return(
     <div>
