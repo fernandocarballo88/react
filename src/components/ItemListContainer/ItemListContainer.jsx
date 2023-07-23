@@ -12,15 +12,18 @@ const ItemListContainer = () =>{
     const { categoryId } = useParams();
 
     async function requestProducts(){
-    let respuesta = [];
+        let respuesta = categoryId
+        ? await getCategoryData(categoryId)
+        : await getData()
+        setProducts(respuesta);
+
+    /*let respuesta = [];
     if( categoryId === undefined) {
         const respuesta = await getData();
     }
     else {
-    respuesta = await getData(categoryId);
+    respuesta = await getData(categoryId);*/
 
-    }
-    setProducts(respuesta);
 }  
 
 useEffect(() =>{
