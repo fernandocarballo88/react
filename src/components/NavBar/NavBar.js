@@ -8,25 +8,25 @@ export default function NavBar() {
             <ul className="nav-menu">            
             <h3>
                 <li>
-                <Link to="/"> Lego Sotre Argentina</Link>
+                <Link to="/"> Lego Store Argentina</Link>
                 </li>
             </h3>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/category/Star Wars">
-                <button className="btn">Star Wars</button>
+                <Link className="nav-link btn" to="/category/Star Wars">
+                    Star Wars
                 </Link>
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/category/Marvel">
-                <button className="btn">Marvel</button>
+                <Link className="nav-link btn" to="/category/Marvel">
+                Marvel
                 </Link>
             </li>
 
             <li className="nav-item">
-                <Link className="nav-link" to="/category/DC">
-                <button className="btn">DC</button>
+                <Link className="nav-link btn" to="/category/DC">
+                    DC
                 </Link>
             </li>
             </ul>

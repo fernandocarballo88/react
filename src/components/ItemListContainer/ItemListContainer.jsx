@@ -1,21 +1,31 @@
-import { useState } from "react";
-import getData from "../../services/asyncMock"
+import { useEffect, useState } from "react";
+import getData, { getCategoryData } from "../../services/asyncMock"
 import Item from "../Item/Item";
 import './list.css';
 import { useParams } from "react-router-dom";
 
 
 
-
 const ItemListContainer = () =>{
 
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
+    const { categoryId } = useParams();
 
     async function requestProducts(){
-    const respuesta = await getData();
+    let respuesta = [];
+    if( categoryId === undefined) {
+        const respuesta = await getData();
+    }
+    else {
+    respuesta = await getData(categoryId);
+
+    }
     setProducts(respuesta);
-}    
+}  
+
+useEffect(() =>{
     requestProducts();
+}, []);
     
 return(
     <div>

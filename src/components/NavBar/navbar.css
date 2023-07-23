@@ -1,9 +1,10 @@
 .btn{
     color: white;
     background-color: orange;
-    border-radius: 50px;
-    margin: 5px;
-    font-size: large;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    font-size: 20px;
     justify-content: space-between;
 }
 
