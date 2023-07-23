@@ -5,7 +5,7 @@ const productos = [
         img:"../assets/img/xwing.jpg",
         price:50,
         stock:4,
-        category: "Star Wars"
+        category: "Star Wars",
 
     },
     {
@@ -14,7 +14,7 @@ const productos = [
         img:"../assets/img/imperial shuttle.jpeg",
         price:60,
         stock:3,
-        category: "Star Wars"
+        category: "Star Wars",
 
     },
     {
@@ -23,7 +23,7 @@ const productos = [
         img:"../assets/img/batman.jpg",
         price:80,
         stock:1,
-        category: "DC"
+        category: "DC",
     },
     {
         id: 4,
@@ -31,7 +31,7 @@ const productos = [
         img:"../assets/img/razor crest.jpg",
         price:100,
         stock:2,
-        category: "Star Wars"
+        category: "Star Wars",
 
     },
     {
@@ -40,7 +40,7 @@ const productos = [
         img:"../assets/img/tie fighter.jpg",
         price:30,
         stock:10,
-        category: "Star Wars"
+        category: "Star Wars",
 
     },
     {
@@ -49,7 +49,7 @@ const productos = [
         img:"../assets/img/marvel.jpeg",
         price:200,
         stock:1,
-        category: "Marvel"
+        category: "Marvel",
     },
 ];
 
@@ -63,22 +63,24 @@ function getData() {
 }
 
 export function getProductData(idURL) {
-    return new Promise( (resolve,reject) =>{
-
-        const productRequested = productos.find((item) => item.id === parseInt(idURL));
-        setTimeout( () => {
-            resolve(productRequested)
-        }, 2000)
-    })
-}
+    return new Promise((resolve, reject) => {
+      const productRequested = productos.find(
+        (item) => item.id === Number(idURL)
+      );
+  
+      setTimeout(() => {
+        resolve(productRequested);
+      }, 2000);
+    });
+  }
 
 export function getCategoryData(categoryURL){
 return new Promise( (resolve, reject) => {
 
     const categoryRequested = productos.filter( item => {
-    return (item.category === categoryURL)
+        return item.category.toLowerCase() === categoryURL.toLowerCase();
     });
-    setTimeout( () => {
+    setTimeout(() => {
         resolve(categoryRequested);
     }, 2000)
 })
