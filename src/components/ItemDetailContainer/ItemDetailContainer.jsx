@@ -4,7 +4,7 @@ import '../Item/item.css';
 import { useParams } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 
-import { cartContext } from "../../App";
+import { cartContext } from "../../context/cartContext"
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 
 
