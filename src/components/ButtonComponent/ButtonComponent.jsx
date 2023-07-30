@@ -11,7 +11,7 @@ function ButtonComponent(props) {
 
   return (
     <>
-      <button style={styleButton} className="btn">
+      <button onClick={props.onClick} style={styleButton} className="btn">
         {children}
       </button>
     </>
