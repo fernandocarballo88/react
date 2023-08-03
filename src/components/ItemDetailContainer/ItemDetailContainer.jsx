@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import {getProductData} from "../../services/asyncMock";
+import { getProductData } from "../../services/firebase";
 import '../Item/item.css';
 import { useParams } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
@@ -31,6 +31,7 @@ requestProduct()
       //cart.push(clickCount)
       addToCart(product, clickCount);
       alert(`Agregaste ${clickCount} del Set ${product.title} al Carrito`);
+      //Swal.fire('Any fool can use a computer');
       setIsAddedToCart(true)
     }
 
