@@ -10,7 +10,7 @@ function CartContainer(){
     <div>
         <h1>CART</h1>
         {cart.map((item) =>(
-                <div>
+                <div key={item}>
                     <h2>{item.title}</h2>
                     <img src={item.img} alt="imagen" width={"200px"}></img>
                     <h2>{item.price} $</h2>

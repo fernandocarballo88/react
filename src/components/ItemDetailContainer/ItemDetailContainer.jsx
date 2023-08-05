@@ -14,9 +14,13 @@ function ItemDetailContainer(){
     const [isAddedToCart, setIsAddedToCart] = useState(false);
     const { id } = useParams();
 
-    const { addToCart } = useContext(cartContext)
+    const { addToCart, getItemInCart } = useContext(cartContext);
 
-
+    const itemInCart = getItemInCart(id);
+  
+    const maxItems = itemInCart
+      ? product.stock - itemInCart.count
+      : product.stock;
     useEffect(() =>{
     async function requestProduct(){
         const respuesta = await getProductData(id);
@@ -25,7 +29,7 @@ function ItemDetailContainer(){
     
 
 requestProduct()
-    }, []);
+    }, [id]);
 
     function handleAddToCart(clickCount){
       //cart.push(clickCount)
@@ -48,7 +52,7 @@ requestProduct()
         <small>{product.description}</small>
       </div>
       {
-      isAddedToCart? <button>ir al carrito</button>: <ItemCount onAddToCart={handleAddToCart} stock={3} />
+      isAddedToCart? <button>ir al carrito</button>: <ItemCount onAddToCart={handleAddToCart} stock={maxItems} />
       }
       </>
     )
