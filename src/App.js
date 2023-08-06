@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartContainer from "./components/Cart/CartContainer"
 import { CartContextProvider } from "./context/cartContext";
+import { exportProducts } from './services/firebase';
 
 
 
@@ -18,14 +19,17 @@ function App() {
     <CartContextProvider>
     <BrowserRouter>
     <NavBar />
+    {/*<button onClick={exportProducts}>Exportar</button>*/}
     <Routes>
       <Route path='/' element={<ItemListContainer/>}/>
       <Route path="/category/:categoryId" element={<ItemListContainer />}/>
       
       <Route path="/product/:id" element={<ItemDetailContainer />} />
       <Route path="/cart" element={<CartContainer />}></Route>
+      
 
-    <Route path="*" element={<h1>Pagina no encontrada : 404</h1>} />
+
+      <Route path="*" element={<h1>Pagina no encontrada : 404</h1>} />
 
     </Routes>    
 

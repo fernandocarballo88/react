@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, where, query  } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc, where, query, addDoc, setDoc  } from "firebase/firestore"
 
 
 
@@ -66,4 +66,89 @@ async function getCategoryData(){
 return documents.map((item) => ( { ...item.data(), id: item.id }));
 }
 
-export { getData, getProductData, getCategoryData };
+async function createOrder(orderData){
+  const collectionRef = collection(db, "orders")
+
+  const docCreated = await addDoc(collectionRef, orderData)
+  return (docCreated.id)
+}
+
+async function getOrder(id){
+  const docRef = doc(db, "orders", id);
+  const docSnapshot = await getDoc(docRef);
+  
+  if(docSnapshot.exists()){
+  return { ...docSnapshot.data(), id: docSnapshot.id };
+  } else{
+    throw new Error("producto no encontrado")
+  }
+}
+
+async function exportProducts(){
+  const productos = [
+    {
+        id: 1,
+        title: "X wing",
+        img:"../assets/img/xwing.jpg",
+        price:50,
+        stock:4,
+        category: "Star Wars",
+
+    },
+    {
+        id: 2,
+        title:"Imperial Shuttle",
+        img:"../assets/img/imperial shuttle.jpeg",
+        price:60,
+        stock:3,
+        category: "Star Wars",
+
+    },
+    {
+        id: 3,
+        title:"Batman",
+        img:"../assets/img/batman.jpg",
+        price:80,
+        stock:1,
+        category: "DC",
+    },
+    {
+        id: 4,
+        title:"Razor Crest",
+        img:"../assets/img/razor crest.jpg",
+        price:100,
+        stock:2,
+        category: "Star Wars",
+
+    },
+    {
+        id: 5,
+        title:"Tie Fighter",
+        img:"../assets/img/tie fighter.jpg",
+        price:30,
+        stock:10,
+        category: "Star Wars",
+
+    },
+    {
+        id: 6,
+        title:"Hulkbuster",
+        img:"../assets/img/marvel.jpeg",
+        price:200,
+        stock:1,
+        category: "Marvel",
+    },
+];
+
+for(let item of productos){
+  /*const docRef = doc(db, "products", item.id)
+  setDoc(docRef, item)
+  const docCreated = await setDoc(docRef, item);
+  console.log("Doc created with id:", docCreated.id)*/
+  const collectionRef = collection(db, "products")
+  const docCreated = await addDoc(collectionRef, item);
+  console.log("Doc created with id:", docCreated.id)}
+}
+
+export { getData, getProductData, getCategoryData, createOrder, getOrder, exportProducts };
+
