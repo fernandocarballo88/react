@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc, where, query, addDoc, setDoc  } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc, where, query, addDoc, writeBatch } from "firebase/firestore"
 
 
 
@@ -87,7 +87,7 @@ async function getOrder(id){
 async function exportProducts(){
   const productos = [
     {
-        id: 1,
+
         title: "X wing",
         img:"../assets/img/xwing.jpg",
         price:50,
@@ -96,7 +96,7 @@ async function exportProducts(){
 
     },
     {
-        id: 2,
+
         title:"Imperial Shuttle",
         img:"../assets/img/imperial shuttle.jpeg",
         price:60,
@@ -122,7 +122,7 @@ async function exportProducts(){
 
     },
     {
-        id: 5,
+
         title:"Tie Fighter",
         img:"../assets/img/tie fighter.jpg",
         price:30,
@@ -131,14 +131,86 @@ async function exportProducts(){
 
     },
     {
-        id: 6,
+
         title:"Hulkbuster",
         img:"../assets/img/marvel.jpeg",
         price:200,
         stock:1,
         category: "Marvel",
     },
+];}
+
+async function exportProductsWithBatch(){
+  const productos = [
+    {
+
+        title: "X wing",
+        id: 1,
+        img:"../assets/img/xwing.jpg",
+        price:50,
+        stock:4,
+        category: "Star Wars",
+
+    },
+    {
+
+        title:"Imperial Shuttle",
+        id: 2,
+        img:"../assets/img/imperial shuttle.jpeg",
+        price:60,
+        stock:3,
+        category: "Star Wars",
+
+    },
+    {
+        id: 3,
+        title:"Batman",
+        img:"../assets/img/batman.jpg",
+        price:80,
+        stock:1,
+        category: "DC",
+    },
+    {
+        id: 4,
+        title:"Razor Crest",
+        img:"../assets/img/razor crest.jpg",
+        price:100,
+        stock:2,
+        category: "Star Wars",
+
+    },
+    {
+
+        title:"Tie Fighter",
+        id: 5,
+        img:"../assets/img/tie fighter.jpg",
+        price:30,
+        stock:10,
+        category: "Star Wars",
+
+    },
+    {
+
+        title:"Hulkbuster",
+        id: 6,
+        img:"../assets/img/marvel.jpeg",
+        price:200,
+        stock:1,
+        category: "Marvel",
+    },
 ];
+const batch = writeBatch(db);
+
+productos.forEach( producto => {
+  const newDoc = doc(db, "products", String(producto.id))
+  batch.set(newDoc, producto)
+})
+
+await batch.commit()
+console.log("listo")
+
+
+
 
 for(let item of productos){
   /*const docRef = doc(db, "products", item.id)
@@ -149,6 +221,5 @@ for(let item of productos){
   const docCreated = await addDoc(collectionRef, item);
   console.log("Doc created with id:", docCreated.id)}
 }
-
-export { getData, getProductData, getCategoryData, createOrder, getOrder, exportProducts };
+export { getData, getProductData, getCategoryData, createOrder, getOrder, exportProducts, exportProductsWithBatch};
 

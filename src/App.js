@@ -5,7 +5,7 @@ import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartContainer from "./components/Cart/CartContainer"
 import { CartContextProvider } from "./context/cartContext";
-import { exportProducts } from './services/firebase';
+import { exportProductsWithBatch } from './services/firebase';
 
 
 
@@ -19,7 +19,7 @@ function App() {
     <CartContextProvider>
     <BrowserRouter>
     <NavBar />
-    {/*<button onClick={exportProducts}>Exportar</button>*/}
+    <button onClick={exportProductsWithBatch}>Exportar</button>
     <Routes>
       <Route path='/' element={<ItemListContainer/>}/>
       <Route path="/category/:categoryId" element={<ItemListContainer />}/>
