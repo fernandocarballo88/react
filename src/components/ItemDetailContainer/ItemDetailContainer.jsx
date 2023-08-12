@@ -7,6 +7,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import { cartContext } from "../../context/cartContext"
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -56,7 +57,7 @@ requestProduct()
         <small>{product.description}</small>
       </div>
       {
-      isAddedToCart? <button>ir al carrito</button>: <ItemCount onAddToCart={handleAddToCart} stock={maxItems} />
+      isAddedToCart? <button><Link to="/cart">Ir al Carrito</Link></button> : <ItemCount onAddToCart={handleAddToCart} stock={maxItems} />
       }
       </>
     )
