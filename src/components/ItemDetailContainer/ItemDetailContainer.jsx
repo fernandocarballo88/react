@@ -6,6 +6,7 @@ import ItemCount from "../ItemCount/ItemCount";
 
 import { cartContext } from "../../context/cartContext"
 import ButtonComponent from "../ButtonComponent/ButtonComponent";
+import Swal from "sweetalert2";
 
 
 
@@ -31,11 +32,14 @@ function ItemDetailContainer(){
 requestProduct()
     }, [id]);
 
-    function handleAddToCart(clickCount){
+    const handleAddToCart = (clickCount) => {
       //cart.push(clickCount)
       addToCart(product, clickCount);
-      alert(`Agregaste ${clickCount} del Set ${product.title} al Carrito`);
-      //Swal.fire('Any fool can use a computer');
+      //alert(`Agregaste ${clickCount} del Set ${product.title} al Carrito`);
+      Swal.fire({
+        icon: 'success',
+        text: 'Producto Agregado al Carrito',
+      });
       setIsAddedToCart(true)
     }
 
