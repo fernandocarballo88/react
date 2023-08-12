@@ -1,4 +1,6 @@
 import { initializeApp } from "firebase/app";
+import { useParams } from "react-router-dom";
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import { getFirestore, collection, getDocs, doc, getDoc, where, query, addDoc, writeBatch } from "firebase/firestore"
 
 
@@ -56,9 +58,9 @@ if (docSnap.exists()) {
 }
 
 
-async function getCategoryData(){
+async function getCategoryData(categoryId){
     const productsRef = collection(db, "products")
-    const q = query(productsRef, where("category", "==", "DC"))
+    const q = query(productsRef, where("category", "==", categoryId))
     const documentsSnapshot = await getDocs(q);
 
     const documents = documentsSnapshot.docs
