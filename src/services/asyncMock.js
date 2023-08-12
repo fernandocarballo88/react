@@ -77,7 +77,7 @@ export function getProductData(idURL) {
 export function getCategoryData(categoryURL){
 return new Promise( (resolve, reject) => {
 
-    const categoryRequested = productos.filter( item => {
+    const categoryRequested = productos.filter((item) => {
         return item.category.toLowerCase() === categoryURL.toLowerCase();
     });
     setTimeout(() => {

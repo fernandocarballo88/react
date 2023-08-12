@@ -94,67 +94,12 @@ async function exportProducts(){
         stock:4,
         category: "Star Wars",
 
-    },
-    {
-
-        title:"Imperial Shuttle",
-        img:"../assets/img/imperial shuttle.jpeg",
-        price:60,
-        stock:3,
-        category: "Star Wars",
-
-    },
-    {
-        id: 3,
-        title:"Batman",
-        img:"../assets/img/batman.jpg",
-        price:80,
-        stock:1,
-        category: "DC",
-    },
-    {
-        id: 4,
-        title:"Razor Crest",
-        img:"../assets/img/razor crest.jpg",
-        price:100,
-        stock:2,
-        category: "Star Wars",
-
-    },
-    {
-
-        title:"Tie Fighter",
-        img:"../assets/img/tie fighter.jpg",
-        price:30,
-        stock:10,
-        category: "Star Wars",
-
-    },
-    {
-
-        title:"Hulkbuster",
-        img:"../assets/img/marvel.jpeg",
-        price:200,
-        stock:1,
-        category: "Marvel",
-    },
+    }
 ];}
 
 async function exportProductsWithBatch(){
   const productos = [
-    {
-
-        title: "X wing",
-        id: 1,
-        img:"../assets/img/xwing.jpg",
-        price:50,
-        stock:4,
-        category: "Star Wars",
-
-    },
-    {
-
-        title:"Imperial Shuttle",
+    {   title:"Imperial Shuttle",
         id: 2,
         img:"../assets/img/imperial shuttle.jpeg",
         price:60,

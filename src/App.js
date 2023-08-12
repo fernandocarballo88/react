@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartContainer from "./components/Cart/CartContainer"
 import { CartContextProvider } from "./context/cartContext";
 import { exportProductsWithBatch } from './services/firebase';
+import Checkout from './components/Checkout/Checkout';
+import OrderConfirm from './components/OrderConfirm/OrderConfirm';
 
 
 
@@ -19,15 +21,15 @@ function App() {
     <CartContextProvider>
     <BrowserRouter>
     <NavBar />
-    <button onClick={exportProductsWithBatch}>Exportar</button>
+    {/*<button onClick={exportProductsWithBatch}>Exportar</button>*/}
     <Routes>
       <Route path='/' element={<ItemListContainer/>}/>
       <Route path="/category/:categoryId" element={<ItemListContainer />}/>
       
       <Route path="/product/:id" element={<ItemDetailContainer />} />
       <Route path="/cart" element={<CartContainer />}></Route>
-      
-
+      <Route path="/checkout" element={<Checkout/>}></Route>
+      <Route path="/order-confirmation/:id" element={ <OrderConfirm/>}/> 
 
       <Route path="*" element={<h1>Pagina no encontrada : 404</h1>} />
 
