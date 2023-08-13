@@ -3,6 +3,7 @@
     grid-template-columns: 4fr 4fr;
     gap: 50px;
     align-items: center;
+    margin: auto;
 }
 
 .contenedorCard{
@@ -12,12 +13,16 @@
     gap: 10px;
 }
 
+
+
 .dot-wave {
     --uib-size: 47px;
     --uib-speed: 1s;
     --uib-color: black;
+
   
-    display: flex;
+
+
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
@@ -33,6 +38,7 @@
     border-radius: 50%;
     background-color: var(--uib-color);
     will-change: transform;
+    margin: auto;
   }
   
   .dot-wave__dot:nth-child(1) {
