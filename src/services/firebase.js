@@ -11,9 +11,9 @@ import { getFirestore, collection, getDocs, doc, getDoc, where, query, addDoc, w
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA4R7oI3T8TCLyZYOJQLNj_ObydNIl6NnA",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "react-coder-ef1b4.firebaseapp.com",
-  projectId: "react-coder-ef1b4",
+  projectId: process.env.REACT_APP_PROJECT_ID,
   storageBucket: "react-coder-ef1b4.appspot.com",
   messagingSenderId: "923188735684",
   appId: "1:923188735684:web:7a50750a4ffcba88ac2391"
